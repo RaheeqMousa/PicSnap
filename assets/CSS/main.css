@@ -1,0 +1,16 @@
+@import url("base.css");
+
+header{
+    color: #9538FF;
+    /* background-color: rgb(253, 248, 243); */
+    background-color: #f4f6fa;
+}
+
+header a{
+    color: #9538FF;
+}
+
+header ul li{
+    padding: 5px;
+}
+
