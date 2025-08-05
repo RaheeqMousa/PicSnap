@@ -1,0 +1,38 @@
+@import url("base.css");
+
+/*................................Header Style...................................*/
+
+header{
+    color: #9538FF;
+    /* background-color: rgb(253, 248, 243); */
+    background-color: #f4f6fa;
+}
+
+header a{
+    color: #9538FF;
+}
+
+header ul li{
+    padding: 5px;
+}
+
+
+/*.........................Footer Style...............................*/
+
+footer{
+    background-color: black;
+    color: #ffffff;
+    padding: 20px 0px;
+}
+
+footer a{
+    color: #9538FF;
+}
+
+footer .links{
+    gap:10px;
+}
+
+footer .row{
+padding: 5px 0px;
+}
