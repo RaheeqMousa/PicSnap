@@ -301,6 +301,72 @@ a #downloadImg,.closeButtonWrapper{
 
 /*........................Home page Style.............................*/
 
+.scroll-container {
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.img-section{
+    padding: 20px 40px;
+    background-color: peachpuff;
+    scroll-snap-align: start;
+    min-height: 100vh;
+}
+
+.img-section:nth-child(2){
+    background-color: rgb(224, 238, 255);
+}
+
+.img-section:nth-child(3){
+    background-color: palegreen;
+}
+
+.img-section span{
+   font-size: 40px;
+}
+
+.img-section img{
+    animation: appearing 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    border-radius: 15px;
+}
+
+.img-section img:nth-child(1){
+    animation-delay: 0s;
+}
+
+.img-section img:nth-child(2){
+    animation-delay: 0.5s;
+}
+
+.img-section img:nth-child(3){
+    animation-delay: 1s;
+}
+
+@media screen and (max-width: 800px){
+    .img-section:nth-child(1) img:nth-child(2){
+        display: none;
+    }
+
+    .img-section:nth-child(2) img,.img-section:nth-child(1) img,.img-section:nth-child(3) img{
+        width: 100%;
+        height: auto;
+    }
+
+    .img-section:nth-child(3) div,.img-section:nth-child(1) div, .img-section:nth-child(2) div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap:5px;
+        width: 100%;
+    }
+
+
+}
 
 
 /*.........................Footer Style...............................*/
