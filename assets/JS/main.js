@@ -113,11 +113,19 @@ window.onscroll = () => {
 
             modal.querySelector(".image-modal .img-options").innerHTML = `
                 <span>${currentImage.getAttribute('title')}</span>
-                <a href="${currentImage.src}" download>
+                <button id="downlaodBtn">
                     <img id="downloadImg" src="assets/Images/download-solid-full.svg" alt="download icon" title="download image" width="30" height="30">
-                </a>
+                </button>
             `;
             
+            document.getElementById("downlaodBtn").addEventListener("click",function(){
+                const imageURL=currentImage.src;
+                const link =document.createElement('a');
+                link.href=imageURL;
+                link.download=imageURL;
+                link.click();
+            });
+
             modal.querySelector(".image-modal .imageWrapper").innerHTML = `
             <img src="${currentImage.src}" alt="${currentImage.alt}" title="${currentImage.title}"/>
             `;

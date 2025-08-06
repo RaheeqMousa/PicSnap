@@ -17,6 +17,7 @@ header ul li{
 }
 
 /*.....................................................*/
+
 .explore{
     padding:10px 30px;
 }
@@ -95,7 +96,7 @@ header ul li{
     align-items: flex-end;
     width: 100%;
     position: fixed;
-    z-index: 1000px;
+    z-index: 1000;
 }
 
 .loader{
@@ -118,6 +119,12 @@ header ul li{
 
     100%{
         transform:rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 800px){
+    .loader-container{
+        top:60%;
     }
 }
 
@@ -287,11 +294,11 @@ header ul li{
     cursor: pointer;
 }
 
-a #downloadImg,.img-options span{
+button #downloadImg,.img-options span{
     padding: 5px;
     background-color: #ffffff;
 }
-a #downloadImg,.closeButtonWrapper{
+button #downloadImg,.closeButtonWrapper{
     border-radius: 10px;
 }
 
