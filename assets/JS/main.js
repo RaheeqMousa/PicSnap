@@ -113,17 +113,29 @@ window.onscroll = () => {
 
             modal.querySelector(".image-modal .img-options").innerHTML = `
                 <span>${currentImage.getAttribute('title')}</span>
-                <button id="downlaodBtn">
+                <button id="downloadBtn">
                     <img id="downloadImg" src="assets/Images/download-solid-full.svg" alt="download icon" title="download image" width="30" height="30">
                 </button>
             `;
             
-            document.getElementById("downlaodBtn").addEventListener("click",function(){
-                const imageURL=currentImage.src;
-                const link =document.createElement('a');
-                link.href=imageURL;
-                link.download=imageURL;
-                link.click();
+            document.getElementById("downloadBtn").addEventListener("click", async function() {
+                const imageURL = currentImage.src;
+
+                try {
+                    const response=await fetch(imageURL,{mode:'cors'});
+                    const blob=await response.blob();
+                    const blobTempURL=await URL.createObjectURL(blob);
+
+                    const link =document.createElement('a');
+                    link.href=blobTempURL;
+                    link.download=`${currentImage.getAttribute('title')||"image"}.jpg`;
+                    link.click();
+
+                    URL.revokeObjectURL(blobTempURL);
+                } catch (error) {
+                    console.error("Download failed:", error);
+                    alert("Unable to download image due to cross-origin restrictions \"CORS\".");
+                }
             });
 
             modal.querySelector(".image-modal .imageWrapper").innerHTML = `

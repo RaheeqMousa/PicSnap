@@ -294,11 +294,15 @@ header ul li{
     cursor: pointer;
 }
 
-button #downloadImg,.img-options span{
+#downloadBtn{
+    cursor: pointer;
+}
+
+#downloadBtn #downloadImg,.img-options span{
     padding: 5px;
     background-color: #ffffff;
 }
-button #downloadImg,.closeButtonWrapper{
+#downloadBtn #downloadImg,.closeButtonWrapper{
     border-radius: 10px;
 }
 
