@@ -1,7 +1,7 @@
 let page = 1;
 let isLoading = false;
 
-const loading_container = document.querySelector(".loader-container");
+const loading_container = document.querySelector(".LoaderContainer");
 const loader = document.querySelector(".loader");
 
 /*......................This function is to get data from the API...................*/
@@ -25,8 +25,8 @@ const structurePage = async function () {
     isLoading = true;
 
     // Show loader
-    loader.classList.remove("stop-loader");
-    loading_container.classList.remove("stop-loader");
+    loader.classList.remove("StopLoader");
+    loading_container.classList.remove("StopLoader");
 
     try {
         const images = await getImages();
@@ -35,32 +35,32 @@ const structurePage = async function () {
             const group=images.slice(i, i+6);
 
             document.querySelector("main #images").innerHTML += `
-            <div class="imageRow">
-                <div class="gridStyle">
-                    <div class="imageWrapper singleImgDiv">
+            <div class="ImageRow">
+                <div class="GridStyle">
+                    <div class="ImageWrapper SingleImgDiv">
                         <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}'>
                     </div>
-                    <div class="twoImgDiv">
-                        <div class="imageWrapper">
+                    <div class="TwoImgDiv">
+                        <div class="ImageWrapper">
                             <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}'>
                         </div>
-                        <div class="imageWrapper">
+                        <div class="ImageWrapper">
                             <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}'>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="gridStyle">
-                    <div class="twoImgDiv">
-                        <div class="imageWrapper">
+                <div class="GridStyle">
+                    <div class="TwoImgDiv">
+                        <div class="ImageWrapper">
                             <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}'>
                         </div>
-                        <div class="imageWrapper">
+                        <div class="ImageWrapper">
                             <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}'>
                         </div>
                     </div>
-                    <div class="imageWrapper singleImgDiv">
+                    <div class="ImageWrapper SingleImgDiv">
                         <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}'>
                     </div>
                 </div>
@@ -74,8 +74,8 @@ const structurePage = async function () {
         console.log(error);
     } finally {
         // Hide loader and release lock
-        loader.classList.add("stop-loader");
-        loading_container.classList.add("stop-loader");
+        loader.classList.add("StopLoader");
+        loading_container.classList.add("StopLoader");
         isLoading = false;
     }
 };
@@ -99,26 +99,26 @@ window.onscroll = () => {
  function modal(){
 
     const modal= document.querySelector('.modal');
-    const imgs = Array.from(document.querySelectorAll(".imageWrapper img"));
-    const closeBtn=document.querySelector('.closeButtonWrapper button');
+    const imgs = Array.from(document.querySelectorAll(".ImageWrapper img"));
+    const closeBtn=document.querySelector('.CloseButtonWrapper button');
 
 
     imgs.forEach(function(img) {
         img.addEventListener("click", function(e) {
 
-            document.querySelector('.modal').classList.remove('display-none-modal');
+            document.querySelector('.modal').classList.remove('DisplayNoneModal');
 
             const currentImage = e.target;
             console.log("clicked images "+currentImage.title);
 
-            modal.querySelector(".image-modal .img-options").innerHTML = `
+            modal.querySelector(".ImageModal .ImgOptions").innerHTML = `
                 <span>${currentImage.getAttribute('title')}</span>
-                <button id="downloadBtn">
-                    <img id="downloadImg" src="assets/Images/download-solid-full.svg" alt="download icon" title="download image" width="30" height="30">
+                <button id="DownloadBtn">
+                    <img id="DownloadImg" src="assets/Images/download-solid-full.svg" alt="download icon" title="download image" width="30" height="30">
                 </button>
             `;
             
-            document.getElementById("downloadBtn").addEventListener("click", async function() {
+            document.getElementById("DownloadBtn").addEventListener("click", async function() {
                 const imageURL = currentImage.src;
 
                 try {
@@ -138,7 +138,7 @@ window.onscroll = () => {
                 }
             });
 
-            modal.querySelector(".image-modal .imageWrapper").innerHTML = `
+            modal.querySelector(".ImageModal .ImageWrapper").innerHTML = `
             <img src="${currentImage.src}" alt="${currentImage.alt}" title="${currentImage.title}"/>
             `;
         });
@@ -146,7 +146,7 @@ window.onscroll = () => {
 
 
     closeBtn.addEventListener("click",function(e){
-        modal.classList.add('display-none-modal');
+        modal.classList.add('DisplayNoneModal');
     })
 
 

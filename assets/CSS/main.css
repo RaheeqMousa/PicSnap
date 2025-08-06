@@ -38,25 +38,25 @@ header ul li{
 }
 
 
-.Image-section img{
+.ImageSection img{
     animation: appearing 1s forwards;
     opacity: 0;
     transform: translateY(20px) ;
 }
 
-.Image-section img:nth-child(1){
+.ImageSection img:nth-child(1){
     animation-delay: 0s;
 }
 
-.Image-section img:nth-child(2){
+.ImageSection img:nth-child(2){
     animation-delay: 0.3s;
 }
 
-.Image-section img:nth-child(3){
+.ImageSection img:nth-child(3){
     animation-delay: 0.6s;
 }
 
-.Image-section img:nth-child(4){
+.ImageSection img:nth-child(4){
     animation-delay: 0.9s;
 }
 
@@ -79,7 +79,7 @@ header ul li{
     .display-none-mobile{
         display: none;
     }
-    .Image-section div:nth-child(2){
+    .ImageSection div:nth-child(2){
         display: flex;
         justify-content: center;
         align-items: center;
@@ -90,7 +90,7 @@ header ul li{
 
 /*..................Loader css..........................*/
 
-.loader-container{
+.LoaderContainer{
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -108,7 +108,7 @@ header ul li{
     animation:rotate 1s infinite;
 }
 
-.stop-loader{
+.StopLoader{
     display: none;
 }
 
@@ -123,7 +123,7 @@ header ul li{
 }
 
 @media screen and (max-width: 800px){
-    .loader-container{
+    .LoaderContainer{
         top:60%;
     }
 }
@@ -147,64 +147,64 @@ header ul li{
     transform: scale(1.02);
 }
 
-.gridStyle{
+.GridStyle{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
 }
 
-.imageRow{
+.ImageRow{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
-.twoImgDiv{
+.TwoImgDiv{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
-.twoImgDiv,.singleImgDiv{
+.TwoImgDiv,.SingleImgDiv{
     overflow: hidden;
 }
 
-.gridStyle .twoImgDiv img{
+.GridStyle .TwoImgDiv img{
     object-fit: cover;
 }
 
-.gridStyle .imageWrapper{
+.GridStyle .ImageWrapper{
     padding: 10px; 
 }
 
-.singleImgDiv{
+.SingleImgDiv{
     height: 500px;
     max-height: 600px;
 }
 
-.twoImgDiv .imageWrapper{
+.TwoImgDiv .ImageWrapper{
     height: 450px;
 }
 
-.twoImgDiv {
+.TwoImgDiv {
     max-height: 500px;
 }
 
 
 @media screen and (max-width: 800px){
-    .imageRow{
+    .ImageRow{
         max-height: 700px;
     }
 
-    .singleImgDiv{
+    .SingleImgDiv{
         max-height: 300px;
     }
 
-    .twoImgDiv .imageWrapper{
+    .TwoImgDiv .ImageWrapper{
         height: 250px;
     }
 
-    .twoImgDiv {
+    .TwoImgDiv {
         max-height: 300px;
     }
 
@@ -212,25 +212,25 @@ header ul li{
 
 
 @media screen and (max-width: 600px){
-    .imageRow{
+    .ImageRow{
     
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
     }
 
-    .imageRow{
+    .ImageRow{
         max-height: 1500px;
     }
 
-    .singleImgDiv{
+    .SingleImgDiv{
         max-height: 300px;
     }
 
-    .twoImgDiv .imageWrapper{
+    .TwoImgDiv .ImageWrapper{
         height: 300px;
     }
 
-    .twoImgDiv {
+    .TwoImgDiv {
         max-height: 350px;
     }
 }
@@ -250,7 +250,7 @@ header ul li{
 }
 
 
-.image-modal{
+.ImageModal{
     background-color: rgb(255, 255, 255);
     padding: 20px 40px;
     border-radius:20px;
@@ -258,18 +258,18 @@ header ul li{
     position: relative;
 }
  
-.image-modal img{
+.ImageModal img{
     width:100vw;
     height: 100vh;
 }
 
-#downloadImg{
+#DownloadImg{
     width: 40px;
     height: 40px;
     border-radius: 10px;
 }
 
-.img-options{
+.ImgOptions{
     padding: 5px 20px;
     position: absolute;
     bottom: 10%;
@@ -278,13 +278,13 @@ header ul li{
     width: 80%;
 }
 
-.closeButtonWrapper{
+.CloseButtonWrapper{
     position: absolute;
     left: 80px;
     top: 50px;
 }
 
-.closeButtonWrapper button{
+.CloseButtonWrapper button{
     color: #f4f6fa;
     font-weight: bold;
     font-size: 36px;
@@ -294,80 +294,80 @@ header ul li{
     cursor: pointer;
 }
 
-#downloadBtn{
+#DownloadBtn{
     cursor: pointer;
 }
 
-#downloadBtn #downloadImg,.img-options span{
+#DownloadBtn #DownloadImg,.ImgOptions span{
     padding: 5px;
     background-color: #ffffff;
 }
-#downloadBtn #downloadImg,.closeButtonWrapper{
+#DownloadBtn #DownloadImg,.CloseButtonWrapper{
     border-radius: 10px;
 }
 
-.display-none-modal{
+.DisplayNoneModal{
     display: none;
 }
 
 /*........................Home page Style.............................*/
 
-.scroll-container {
+.ScrollContainer {
   overflow-y: scroll;
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
-.img-section{
+.ImgSection{
     padding: 20px 40px;
     background-color: peachpuff;
     scroll-snap-align: start;
     min-height: 100vh;
 }
 
-.img-section:nth-child(2){
+.ImgSection:nth-child(2){
     background-color: rgb(224, 238, 255);
 }
 
-.img-section:nth-child(3){
+.ImgSection:nth-child(3){
     background-color: palegreen;
 }
 
-.img-section span{
+.ImgSection span{
    font-size: 40px;
 }
 
-.img-section img{
+.ImgSection img{
     animation: appearing 1s forwards;
     opacity: 0;
     transform: translateY(20px);
     border-radius: 15px;
 }
 
-.img-section img:nth-child(1){
+.ImgSection img:nth-child(1){
     animation-delay: 0s;
 }
 
-.img-section img:nth-child(2){
+.ImgSection img:nth-child(2){
     animation-delay: 0.5s;
 }
 
-.img-section img:nth-child(3){
+.ImgSection img:nth-child(3){
     animation-delay: 1s;
 }
 
 @media screen and (max-width: 800px){
-    .img-section:nth-child(1) img:nth-child(2){
+    .ImgSection:nth-child(1) img:nth-child(2){
         display: none;
     }
 
-    .img-section:nth-child(2) img,.img-section:nth-child(1) img,.img-section:nth-child(3) img{
+    .ImgSection:nth-child(2) img,.ImgSection:nth-child(1) img,.ImgSection:nth-child(3) img{
         width: 100%;
         height: auto;
     }
 
-    .img-section:nth-child(3) div,.img-section:nth-child(1) div, .img-section:nth-child(2) div{
+    .ImgSection:nth-child(3) div,.ImgSection:nth-child(1) div, .ImgSection:nth-child(2) div{
         display: flex;
         justify-content: center;
         align-items: center;
