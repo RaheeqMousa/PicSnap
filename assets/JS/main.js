@@ -38,14 +38,14 @@ const structurePage = async function () {
             <div class="ImageRow">
                 <div class="GridStyle">
                     <div class="ImageWrapper SingleImgDiv">
-                        <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}'>
+                        <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}' loading="lazy">
                     </div>
                     <div class="TwoImgDiv">
                         <div class="ImageWrapper">
-                            <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}'>
+                            <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}' loading="lazy">
                         </div>
                         <div class="ImageWrapper">
-                            <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}'>
+                            <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}' loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -54,14 +54,14 @@ const structurePage = async function () {
                 <div class="GridStyle">
                     <div class="TwoImgDiv">
                         <div class="ImageWrapper">
-                            <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}'>
+                            <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}' loading="lazy">
                         </div>
                         <div class="ImageWrapper">
-                            <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}'>
+                            <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}' loading="lazy">
                         </div>
                     </div>
                     <div class="ImageWrapper SingleImgDiv">
-                        <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}'>
+                        <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}' loading="lazy">
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ window.onscroll = () => {
             modal.querySelector(".ImageModal .ImgOptions").innerHTML = `
                 <span>${currentImage.getAttribute('title')}</span>
                 <button id="DownloadBtn">
-                    <img id="DownloadImg" src="assets/Images/download-solid-full.svg" alt="download icon" title="download image" width="30" height="30">
+                    <i class="fa-solid fa-download"></i>
                 </button>
             `;
             
