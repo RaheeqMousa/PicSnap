@@ -38,14 +38,14 @@ const structurePage = async function () {
             <div class="ImageRow">
                 <div class="GridStyle">
                     <div class="ImageWrapper SingleImgDiv">
-                        <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}' loading="lazy">
+                        <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}' loading="lazy" width="${group[0].width}" height="${group[0].height}">
                     </div>
                     <div class="TwoImgDiv">
                         <div class="ImageWrapper">
-                            <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}' loading="lazy">
+                            <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}' loading="lazy" width="${group[1].width}" height="${group[1].height}">
                         </div>
                         <div class="ImageWrapper">
-                            <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}' loading="lazy">
+                            <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}' loading="lazy" width="${group[2].width}" height="${group[2].height}">
                         </div>
                     </div>
                 </div>
@@ -54,14 +54,14 @@ const structurePage = async function () {
                 <div class="GridStyle">
                     <div class="TwoImgDiv">
                         <div class="ImageWrapper">
-                            <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}' loading="lazy">
+                            <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}' loading="lazy" width="${group[3].width}" height="${group[3].height}">
                         </div>
                         <div class="ImageWrapper">
-                            <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}' loading="lazy">
+                            <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}' loading="lazy" width="${group[4].width}" height="${group[4].height}">
                         </div>
                     </div>
                     <div class="ImageWrapper SingleImgDiv">
-                        <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}' loading="lazy">
+                        <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}' loading="lazy" width="${group[5].width}" height="${group[5].height}">
                     </div>
                 </div>
             </div>
@@ -101,25 +101,25 @@ window.onscroll = () => {
     const modal= document.querySelector('.modal');
     const imgs = Array.from(document.querySelectorAll(".ImageWrapper img"));
     const closeBtn=document.querySelector('.CloseButtonWrapper button');
+    const imagesContainer=document.querySelector("#images");
 
 
-    imgs.forEach(function(img) {
-        img.addEventListener("click", function(e) {
+    imagesContainer.addEventListener('click',function(e){
 
-            document.querySelector('.modal').classList.remove('DisplayNoneModal');
+        const clickedImage=e.target;
 
-            const currentImage = e.target;
-            console.log("clicked images "+currentImage.title);
+        if(clickedImage.tagName=="IMG" && clickedImage.closest('.ImageWrapper')){
+            modal.classList.remove("DisplayNoneModal");
 
             modal.querySelector(".ImageModal .ImgOptions").innerHTML = `
-                <span>${currentImage.getAttribute('title')}</span>
+                <span>${clickedImage.getAttribute('title')}</span>
                 <button id="DownloadBtn">
                     <i class="fa-solid fa-download"></i>
                 </button>
             `;
-            
+
             document.getElementById("DownloadBtn").addEventListener("click", async function() {
-                const imageURL = currentImage.src;
+                const imageURL = clickedImage.src;
 
                 try {
                     const response=await fetch(imageURL,{mode:'cors'});
@@ -128,7 +128,7 @@ window.onscroll = () => {
 
                     const link =document.createElement('a');
                     link.href=blobTempURL;
-                    link.download=`${currentImage.getAttribute('title')||"image"}.jpg`;
+                    link.download=`${clickedImage.getAttribute('title')||"image"}.jpg`;
                     link.click();
 
                     URL.revokeObjectURL(blobTempURL);
@@ -139,11 +139,10 @@ window.onscroll = () => {
             });
 
             modal.querySelector(".ImageModal .ImageWrapper").innerHTML = `
-            <img src="${currentImage.src}" alt="${currentImage.alt}" title="${currentImage.title}"/>
+                <img src="${clickedImage.src}" alt="${clickedImage.alt}" title="${clickedImage.title}"/>
             `;
-        });
+        }
     });
-
 
     closeBtn.addEventListener("click",function(e){
         modal.classList.add('DisplayNoneModal');
