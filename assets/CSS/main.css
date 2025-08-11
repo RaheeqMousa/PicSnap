@@ -6,6 +6,18 @@ header{
     color: #9538FF;
     /* background-color: rgb(253, 248, 243); */
     background-color: #f4f6fa;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ExploreHeader{
+    flex-direction: column;
+}
+
+header .navbar{
+    width: 100%;
 }
 
 header a{
@@ -20,6 +32,10 @@ header ul li{
 
 .explore{
     padding:10px 30px;
+}
+
+.explore.row{
+    width: 100%;
 }
 
 .explore span{
@@ -326,6 +342,7 @@ header ul li{
     min-height: 100vh;
 }
 
+
 .ImgSection:nth-child(2){
     background-color: rgb(224, 238, 255);
 }
@@ -386,6 +403,11 @@ footer{
     background-color: black;
     color: #ffffff;
     padding: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 footer a{
@@ -398,5 +420,6 @@ footer .links{
 
 footer .row{
 padding: 5px 0px;
+width: 100%;
 }
 
