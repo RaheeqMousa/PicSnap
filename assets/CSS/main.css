@@ -4,8 +4,19 @@
 
 header{
     color: #9538FF;
-    /* background-color: rgb(253, 248, 243); */
     background-color: #f4f6fa;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ExploreHeader{
+    flex-direction: column;
+}
+
+header .navbar{
+    width: 100%;
 }
 
 header a{
@@ -20,6 +31,10 @@ header ul li{
 
 .explore{
     padding:10px 30px;
+}
+
+.explore.row{
+    width: 100%;
 }
 
 .explore h1{
@@ -263,11 +278,6 @@ header ul li{
     height: 100vh;
 }
 
-#DownloadImg{
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-}
 
 .ImgOptions{
     padding: 5px 20px;
@@ -291,24 +301,20 @@ header ul li{
     width: 50px;
     height: 50px;
     background-color: rgba(0,0,0,0.3);
-    border-radius: 10px;
+    cursor: pointer;
 }
 
 #DownloadBtn{
     cursor: pointer;
+    border-radius: 10px;
+    font-size: 36px;
 }
 
-
-#DownloadBtn i,.ImgOptions span{
+#DownloadBtn #DownloadImg,.ImgOptions span{
     padding: 5px;
     background-color: #ffffff;
 }
-
-#DownloadBtn i{
-    font-size: 36px;
-    color: black;
-}
-.CloseButtonWrapper{
+#DownloadBtn #DownloadImg,.CloseButtonWrapper{
     border-radius: 10px;
 }
 
@@ -331,6 +337,7 @@ header ul li{
     scroll-snap-align: start;
     min-height: 100vh;
 }
+
 
 .ImgSection:nth-child(2){
     background-color: rgb(224, 238, 255);
@@ -392,15 +399,15 @@ footer{
     background-color: black;
     color: #ffffff;
     padding: 20px 0px;
-}
-
-footer i{
-    font-size: 36px;
-    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 footer a{
-    color: #ffffff;
+    color: #9538FF;
 }
 
 footer .links{
@@ -409,5 +416,6 @@ footer .links{
 
 footer .row{
 padding: 5px 0px;
+width: 100%;
 }
 

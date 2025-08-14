@@ -4,6 +4,7 @@ let isLoading = false;
 const loading_container = document.querySelector(".LoaderContainer");
 const loader = document.querySelector(".loader");
 
+
 /*......................This function is to get data from the API...................*/
 
 async function getImages() {
@@ -68,7 +69,7 @@ const structurePage = async function () {
             `
         }
 
-        modal();
+        openModal();
         
     } catch (error) {
         console.log(error);
@@ -96,10 +97,9 @@ window.onscroll = () => {
 
 /*.................................Modal..............................*/
 
- function modal(){
+ function openModal(){
 
-    const modal= document.querySelector('.modal');
-    const imgs = Array.from(document.querySelectorAll(".ImageWrapper img"));
+    const modal=document.querySelector('.modal');
     const closeBtn=document.querySelector('.CloseButtonWrapper button');
     const imagesContainer=document.querySelector("#images");
 
@@ -147,6 +147,4 @@ window.onscroll = () => {
     closeBtn.addEventListener("click",function(e){
         modal.classList.add('DisplayNoneModal');
     })
-
-
  }

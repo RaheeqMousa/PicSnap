@@ -1,12 +1,23 @@
-
 :root{
     --mainFont:'Artifika','Times New Roman';
 }
 
 body{
     font-family: var(--mainFont);
-    margin:0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, ul, ol, blockquote,dl, dt, dd,figure, fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+main{
+    width: 100%;
 }
 
 button{
@@ -26,11 +37,11 @@ a{
 }
 
 .container{
-    width: 100%;
+    /* width: 100%; */
     max-width:1000px;
-    position: relative;
+    /* position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
 }
 
 
