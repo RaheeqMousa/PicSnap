@@ -22,7 +22,7 @@ header ul li{
     padding:10px 30px;
 }
 
-.explore span{
+.explore h1{
     opacity:0;
     animation: toRight 1s forwards;
     transform: translateX(-50%);
@@ -340,7 +340,7 @@ header ul li{
     background-color: palegreen;
 }
 
-.ImgSection span{
+.ImgSection h1{
    font-size: 40px;
 }
 
