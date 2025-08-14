@@ -268,7 +268,7 @@ main{
     position: relative;
     height: auto;
     width: 700px;
-
+    max-height:90%;
 }
  
 .ImageModal img{
