@@ -1,7 +1,8 @@
 let page = 1;
 let isLoading = false;
 
-const loading_container = document.querySelector(".LoaderContainer");
+const modal = document.querySelector('.modal');
+const loadingContainer = document.querySelector(".LoaderContainer");
 const loader = document.querySelector(".loader");
 
 
@@ -9,7 +10,7 @@ const loader = document.querySelector(".loader");
 
 async function getImages() {
     try {
-        const elements = await fetch(`https://picsum.photos/v2/list?page=${page}`);
+        const elements = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=12`);
         const data = await elements.json();
         return data;
     } catch (error) {
@@ -27,26 +28,26 @@ const structurePage = async function () {
 
     // Show loader
     loader.classList.remove("StopLoader");
-    loading_container.classList.remove("StopLoader");
+    loadingContainer.classList.remove("StopLoader");
 
     try {
         const images = await getImages();
 
-        for(let i=0;i<images.length;i+=6){
-            const group=images.slice(i, i+6);
+        for (let i = 0; i < images.length; i += 6) {
+            const group = images.slice(i, i + 6);
 
             document.querySelector("main #images").innerHTML += `
             <div class="ImageRow">
                 <div class="GridStyle">
                     <div class="ImageWrapper SingleImgDiv">
-                        <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}' loading="lazy" width="${group[0].width}" height="${group[0].height}">
+                        <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}' width="${group[0].width}" height="${group[0].height}">
                     </div>
                     <div class="TwoImgDiv">
                         <div class="ImageWrapper">
-                            <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}' loading="lazy" width="${group[1].width}" height="${group[1].height}">
+                            <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}' width="${group[1].width}" height="${group[1].height}">
                         </div>
                         <div class="ImageWrapper">
-                            <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}' loading="lazy" width="${group[2].width}" height="${group[2].height}">
+                            <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}' width="${group[2].width}" height="${group[2].height}">
                         </div>
                     </div>
                 </div>
@@ -55,28 +56,28 @@ const structurePage = async function () {
                 <div class="GridStyle">
                     <div class="TwoImgDiv">
                         <div class="ImageWrapper">
-                            <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}' loading="lazy" width="${group[3].width}" height="${group[3].height}">
+                            <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}' width="${group[3].width}" height="${group[3].height}">
                         </div>
                         <div class="ImageWrapper">
-                            <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}' loading="lazy" width="${group[4].width}" height="${group[4].height}">
+                            <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}' width="${group[4].width}" height="${group[4].height}">
                         </div>
                     </div>
                     <div class="ImageWrapper SingleImgDiv">
-                        <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}' loading="lazy" width="${group[5].width}" height="${group[5].height}">
+                        <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}' width="${group[5].width}" height="${group[5].height}">
                     </div>
                 </div>
             </div>
-            `
+            `;
+
+            getToast("Data has been loaded successfully",2000);
         }
 
-        openModal();
-        
     } catch (error) {
         console.log(error);
     } finally {
         // Hide loader and release lock
         loader.classList.add("StopLoader");
-        loading_container.classList.add("StopLoader");
+        loadingContainer.classList.add("StopLoader");
         isLoading = false;
     }
 };
@@ -84,31 +85,41 @@ const structurePage = async function () {
 structurePage();
 
 /*................................For infinite scroll and fetching with each page ends........................................*/
-window.onscroll = () => {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const threshold = document.documentElement.scrollHeight - 100;
 
-    if (!isLoading && scrollPosition >= threshold) {
-        page++;
-        structurePage();
-    }
-};
+
+document.addEventListener("DOMContentLoaded",()=>{
+    const observer= new IntersectionObserver(entries=>{
+        const entry = entries[0]; // this is the ScrollResponser div
+
+        if(entry.isIntersecting && !isLoading){
+            page++;
+            structurePage();
+        }
+    },{
+        root:null, //This means the root element (the reference area for the observer) is the browser’s viewport.
+        rootMargin:"0px",//This adds a virtual margin of 200px around the viewport (by default on all sides), so you can preload images or content before the user reaches the bottom
+        threshold:0 //The threshold in an Intersection Observer controls how much of the target element must be visible before the callback is triggered
+    });
+
+    observer.observe(document.querySelector('.ScrollResponser'));
+
+    structurePage() //to upload the first page
+});
 
 
 /*.................................Modal..............................*/
 
- function openModal(){
+function openModal() {
 
-    const modal=document.querySelector('.modal');
-    const closeBtn=document.querySelector('.CloseButtonWrapper button');
-    const imagesContainer=document.querySelector("#images");
+    const closeBtn = document.querySelector('.CloseButtonWrapper button');
+    const imagesContainer = document.querySelector("#images");
 
 
-    imagesContainer.addEventListener('click',function(e){
+    imagesContainer.addEventListener('click', function (e) {
 
-        const clickedImage=e.target;
+        const clickedImage = e.target;
 
-        if(clickedImage.tagName=="IMG" && clickedImage.closest('.ImageWrapper')){
+        if (clickedImage.tagName == "IMG" && clickedImage.closest('.ImageWrapper')) {
             modal.classList.remove("DisplayNoneModal");
 
             modal.querySelector(".ImageModal .ImgOptions").innerHTML = `
@@ -118,23 +129,27 @@ window.onscroll = () => {
                 </button>
             `;
 
-            document.getElementById("DownloadBtn").addEventListener("click", async function() {
+            document.getElementById("DownloadBtn").addEventListener("click", async function () {
                 const imageURL = clickedImage.src;
 
                 try {
-                    const response=await fetch(imageURL,{mode:'cors'});
-                    const blob=await response.blob();
-                    const blobTempURL=await URL.createObjectURL(blob);
-
-                    const link =document.createElement('a');
-                    link.href=blobTempURL;
-                    link.download=`${clickedImage.getAttribute('title')||"image"}.jpg`;
+                    const response = await fetch(imageURL, { mode: 'cors' });
+                    const blob = await response.blob();
+                    const blobTempURL = await URL.createObjectURL(blob);
+  
+                    const link = document.createElement('a');
+                    link.href = blobTempURL;
+                    link.download = `${clickedImage.getAttribute('title') || "image"}.jpg`;
+                    
+                    document.body.appendChild(link);
                     link.click();
+                    document.body.removeChild(link);
+                    window.open(blobTempURL,'_self');
 
                     URL.revokeObjectURL(blobTempURL);
                 } catch (error) {
                     console.error("Download failed:", error);
-                    alert("Unable to download image due to cross-origin restrictions \"CORS\".");
+                    getToast("Unable to download image due to cross-origin restrictions \"CORS\".",6000);
                 }
             });
 
@@ -144,7 +159,38 @@ window.onscroll = () => {
         }
     });
 
-    closeBtn.addEventListener("click",function(e){
+    closeBtn.addEventListener("click", function (e) {
         modal.classList.add('DisplayNoneModal');
-    })
- }
+    });
+
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+    openModal();
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.code === 'Escape') {
+        modal.classList.add('DisplayNoneModal');
+    }
+});
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.classList.add("DisplayNoneModal");
+    }
+}
+
+/*.............................Show Toast.................................*/
+
+function getToast(message, time){
+    const toast=document.querySelector(".toast");
+    toast.querySelector('p').textContent=message;
+    toast.classList.remove("DisplayNoneModal");
+    toast.classList.add("RightLeft");
+
+    setTimeout(()=>{
+        toast.classList.remove("RightLeft");
+        toast.classList.add("DisplayNoneModal");
+    },time);
+}

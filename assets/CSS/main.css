@@ -29,9 +29,6 @@ header ul li{
 
 /*.....................................................*/
 
-.explore{
-    padding:10px 30px;
-}
 
 .explore.row{
     width: 100%;
@@ -89,6 +86,7 @@ header ul li{
         justify-content: center;
         gap:20px;
     }
+
 }
 @media screen and (max-width: 500px){
     .display-none-mobile{
@@ -108,9 +106,8 @@ header ul li{
 .LoaderContainer{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     width: 100%;
-    position: fixed;
     z-index: 1000;
 }
 
@@ -121,6 +118,8 @@ header ul li{
     border: solid 10px #9538FF;
     border-bottom-color: transparent;
     animation:rotate 1s infinite;
+    position: fixed;
+    bottom: 200px;
 }
 
 .StopLoader{
@@ -136,14 +135,10 @@ header ul li{
         transform:rotate(360deg);
     }
 }
-
-@media screen and (max-width: 800px){
-    .LoaderContainer{
-        top:60%;
-    }
-}
-
 /*............................Main content style..................................*/
+main{
+    margin-bottom: 100px;
+}
 
 #images{
     padding: 30px 0px;
@@ -271,27 +266,33 @@ header ul li{
     border-radius:20px;
     box-shadow:0 4px 4px rgba(0,0,0,.1);
     position: relative;
+    height: auto;
+    width: 700px;
+
 }
  
 .ImageModal img{
-    width:100vw;
-    height: 100vh;
+    width:100%;
+    height: auto;
 }
 
 
 .ImgOptions{
     padding: 5px 20px;
     position: absolute;
-    bottom: 10%;
-    left: 8%;
-    background-color: rgba(0,0,0,0.1);
-    width: 80%;
+    left: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .CloseButtonWrapper{
     position: absolute;
-    left: 80px;
-    top: 50px;
+    left: 40px;
+    top: 25px;
 }
 
 .CloseButtonWrapper button{
@@ -320,6 +321,12 @@ header ul li{
 
 .DisplayNoneModal{
     display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .ImageModal{
+        width:100%;
+    }
 }
 
 /*........................Home page Style.............................*/
@@ -407,7 +414,12 @@ footer{
 }
 
 footer a{
-    color: #9538FF;
+    color: #ffffff;
+}
+
+footer i{
+    font-size: 36px;
+    color: white;
 }
 
 footer .links{
@@ -419,3 +431,16 @@ padding: 5px 0px;
 width: 100%;
 }
 
+
+/*............................toast............................*/
+
+.toast{
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    background-color: #9538FF;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    z-index: 1000px;
+}

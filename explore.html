@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Explore - PicSnap</title>
         <meta charset="UTF-8">
@@ -11,11 +11,10 @@
         <meta property="og:description" content="PicSnap - Explore Images, Download Free Images">
         <meta property="og:image" href="assets/Images/logo.png">
         <link rel="icon" type="image/" href="assets/Images/logo.png">
-        
+
         <link href="assets/CSS/main.css" rel="stylesheet">
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-            integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -29,17 +28,17 @@
         <header class="ExploreHeader">
                 <div class="row navbar container">
                     <div>
-                        <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="auto">
+                        <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="50">
                     </div>
 
-                    <nav>
+                    <nav aria-label="Primary navigation">
                         <ul class="row">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="explore.html">Explore</a></li>
                         </ul>
                     </nav>
 
-                    <nav>
+                    <nav aria-label="Authentication navigation">
                         <ul class="row">
                             <li><a href="#">login</a></li>
                             <li><a href="#">register</a></li>
@@ -51,12 +50,12 @@
                 <h1>Step outside your comfort zone and explore the beauty our world!</h1>
                 <section class="ImageSection">
                     <div class="display-none-mobile">
-                        <img src="assets/Images/camera.jpg" title="Camera" alt="Camera" width="200px" height="200px">
-                        <img src="assets/Images/nature.jpg" title="Nature" alt="Nature" width="200px" height="200px">                   
+                        <img src="assets/Images/camera.jpg" title="Camera" alt="Camera" width="200px" height="200px" loading="lazy">
+                        <img src="assets/Images/nature.jpg" title="Nature" alt="Nature" width="200px" height="200px" loading="lazy">                  
                     </div>
                     <div>
-                        <img src="assets/Images/dog.jpg" title="Dog" alt="Dog" width="200px" height="200px">
-                        <img src="assets/Images/adventure.jpg" title="Adventure" alt="Adventure" width="200px" height="200px">
+                        <img src="assets/Images/dog.jpg" title="Dog" alt="Dog" width="200px" height="200px" loading="lazy">
+                        <img src="assets/Images/adventure.jpg" title="Adventure" alt="Adventure" width="200px" height="200px" loading="lazy">
                     </div>
                 </section>
             </section>
@@ -76,7 +75,12 @@
                
             </section>
 
-            <section class="modal DisplayNoneModal">
+            <div class="ScrollResponser" >
+
+            </div>
+
+            <div class="modal DisplayNoneModal" role="dialog" aria-modal="true" aria-label="Image">
+
                 <div class="ImageModal">
                     <div class="CloseButtonWrapper">
                         <button>X</button>
@@ -91,14 +95,14 @@
                     </div>
                     
                 </div>
-            </section>
+            </div>
             
         </main>
 
         <footer>
                 <div class="row container">
-                    <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="auto">
-                    <nav>
+                    <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="50">
+                    <nav aria-label="Primary navigation">
                         <ul class="row links">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="explore.html">Explore</a></li>
@@ -109,20 +113,34 @@
                 <div class="row container">
                     <p>Copyright © 2024 PicSnap. All rights reserved</p>
                     <a href="#">Privacy Policy</a>
-                    <nav>
+                    <nav aria-label="Social links">
                         <ul class="row links">
-                            <li><a href="https://www.linkedin.com/in/raheeq-mousa" target="_blank"><img
-                                        src="./assets/Images/linkedin.png" width="30" height="30"></a></li>
-                            <li><a href="https://www.facebook.com/raheeqm.mousa" target="_blank"><img
-                                        src="./assets/Images/facebook.png" width="30" height="30"></a></li>
-                            <li><a href="https://www.instagram.com/heko._.spams/" target="_blank"><img
-                                        src="./assets/Images/instagram.png" width="30" height="30"></a></li>
+                            <li>
+                            <a href="https://www.linkedin.com/in/raheeq-mousa" target="_blank"
+                                aria-label="Raheeq Mousa's LinkedIn Profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/raheeqm.mousa" target="_blank"
+                                aria-label="Raheeq Mousa's Facebook profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-square-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/heko._.spams/" target="_blank"
+                                aria-label="Raheeq Mousa's instagram profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
                         </ul>
                     </nav>
                 </div>
         </footer>
 
-        
+        <div class="toast DisplayNoneModal">
+            <p></p>
+        </div>
 
         <script src="assets/JS/main.js">
         </script>
