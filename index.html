@@ -1,15 +1,121 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Picsum</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Free Pictures Website">
-        <meta name="keywords" content="HTML, CSS, JavaScript">
-        <meta name="author" content="Raheeq Mousa">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html lang="en">
 
-    <body>
+<head>
+    <title>Home - PicSnap</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Pictures Website">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Raheeq Mousa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="PicSnap - Home">
+    <meta property="og:description" content="PicSnap - Explore Images, Download Free Images">
+    <meta property="og:image" href="assets/Images/logo.png">
+    <link rel="icon" type="image/png" href="assets/Images/logo.png">
+    <link href="assets/CSS/main.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa+Ink:wght@400;700&family=Artifika&display=swap"
+            rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+            <div class="row container navbar">
+                <div>
+                    <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="50">
+                </div>
+
+                <nav aria-label="Primary navigation">
+                    <ul class="row">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore.html">Explore</a></li>
+                    </ul>
+                </nav>
+
+                <nav aria-label="Authentication navigation">
+                    <ul class="row">
+                        <li><a href="#">login</a></li>
+                        <li><a href="#">register</a></li>
+                    </ul>
+                </nav>
+            </div>
         
-    </body>
+    </header>
+
+    <main>
+
+        <div class="scroll-container">
+            <section class="img-section row">
+                <h1>Explore the beauty of Nature</h1>
+                <div>
+                   <img src="assets/Images/chicken.jpg" alt="Chick" title="CHick" width="250px" height="250px">
+                    <div>
+                        <img src="assets/Images/flowers in nature.jpg" alt="flowers" title="Flower" width="250px" height="250px">
+                          <img src="assets/Images/hourse.jpg" alt="Hourse" title="Hourse" width="300px" height="450px">
+                    </div>     
+                </div>                  
+            </section>
+            <section class="img-section row">
+                <h1>Discover the world Art</h1>
+                <div>
+                    <img src="assets/Images/vanGogh.jpg" alt="stary night" title="stary nigh" width="700px" height="400px">                         
+                </div>                  
+            </section>
+            <section class="img-section row">
+                <h1>Explore youself!</h1>
+                <div>
+                    <img src="assets/Images/reading.jpg" alt="Reading books" title="Hourse" width="300px" height="300px"> 
+                    <img src="assets/Images/flowers in nature.jpg" alt="flowers" title="Flower" width="300px" height="300px">   
+                </div>                  
+            </section>
+        </div>
+        
+    </main>
+
+    <footer>
+            <div class="row container">
+                <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="50">
+                <nav aria-label="Primary navigation">
+                    <ul class="row links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore.html">Explore</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="row container">
+                <p>Copyright © 2024 PicSnap. All rights reserved</p>
+                <a href="#">Privacy Policy</a>
+                <nav aria-label="Social links">
+                    <ul class="row links">
+                        <li>
+                            <a href="https://www.linkedin.com/in/raheeq-mousa" target="_blank"
+                                aria-label="Raheeq Mousa's LinkedIn Profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/raheeqm.mousa" target="_blank"
+                                aria-label="Raheeq Mousa's Facebook profile">
+                                <i class="fa-brands fa-square-facebook" rel="noopener noreferrer"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/heko._.spams/" target="_blank"
+                                aria-label="Raheeq Mousa's instagram profile">
+                                <i class="fa-brands fa-instagram" rel="noopener noreferrer"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    </footer>
+
+</body>
+
 </html>
