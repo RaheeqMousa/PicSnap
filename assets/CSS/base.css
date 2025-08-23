@@ -37,11 +37,7 @@ a{
 }
 
 .container{
-    /* width: 100%; */
     max-width:1000px;
-    /* position: relative;
-    left: 50%;
-    transform: translateX(-50%); */
 }
 
 
@@ -72,12 +68,12 @@ a{
 
 /*.......................Animation.........................*/
 
-.RightLeft{
-    animation: ToLeft 1s forwards;
+.right-left{
+    animation: to-left 1s forwards;
     transform: translateX(50%);
 }
 
-@keyframes ToLeft {
+@keyframes to-left {
     to{
         opacity:1;
         transform: translateX(0);

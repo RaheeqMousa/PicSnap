@@ -2,7 +2,7 @@ let page = 1;
 let isLoading = false;
 
 const modal = document.querySelector('.modal');
-const loadingContainer = document.querySelector(".LoaderContainer");
+const loadingContainer = document.querySelector(".loader-container");
 const loader = document.querySelector(".loader");
 
 
@@ -27,8 +27,8 @@ const structurePage = async function () {
     isLoading = true;
 
     // Show loader
-    loader.classList.remove("StopLoader");
-    loadingContainer.classList.remove("StopLoader");
+    loader.classList.remove("stop-loader");
+    loadingContainer.classList.remove("stop-loader");
 
     try {
         const images = await getImages();
@@ -37,32 +37,32 @@ const structurePage = async function () {
             const group = images.slice(i, i + 6);
 
             document.querySelector("main #images").innerHTML += `
-            <div class="ImageRow">
-                <div class="GridStyle">
-                    <div class="ImageWrapper SingleImgDiv">
+            <div class="image-row">
+                <div class="grid-style">
+                    <div class="image-wrapper single-img-div">
                         <img src='${group[0].download_url}' alt='${group[0].author}' title='${group[0].author}' width="${group[0].width}" height="${group[0].height}">
                     </div>
-                    <div class="TwoImgDiv">
-                        <div class="ImageWrapper">
+                    <div class="two-img-div">
+                        <div class="image-wrapper">
                             <img src='${group[1].download_url}' alt='${group[1].author}' title='${group[1].author}' width="${group[1].width}" height="${group[1].height}">
                         </div>
-                        <div class="ImageWrapper">
+                        <div class="image-wrapper">
                             <img src='${group[2].download_url}' alt='${group[2].author}' title='${group[2].author}' width="${group[2].width}" height="${group[2].height}">
                         </div>
                     </div>
                 </div>
 
 
-                <div class="GridStyle">
-                    <div class="TwoImgDiv">
-                        <div class="ImageWrapper">
+                <div class="grid-style">
+                    <div class="two-img-div">
+                        <div class="image-wrapper">
                             <img src='${group[3].download_url}' alt='${group[3].author}' title='${group[3].author}' width="${group[3].width}" height="${group[3].height}">
                         </div>
-                        <div class="ImageWrapper">
+                        <div class="image-wrapper">
                             <img src='${group[4].download_url}' alt='${group[4].author}' title='${group[4].author}' width="${group[4].width}" height="${group[4].height}">
                         </div>
                     </div>
-                    <div class="ImageWrapper SingleImgDiv">
+                    <div class="image-wrapper single-img-div">
                         <img src='${group[5].download_url}' alt='${group[5].author}' title='${group[5].author}' width="${group[5].width}" height="${group[5].height}">
                     </div>
                 </div>
@@ -76,8 +76,8 @@ const structurePage = async function () {
         console.log(error);
     } finally {
         // Hide loader and release lock
-        loader.classList.add("StopLoader");
-        loadingContainer.classList.add("StopLoader");
+        loader.classList.add("stop-loader");
+        loadingContainer.classList.add("stop-loader");
         isLoading = false;
     }
 };
@@ -89,7 +89,7 @@ structurePage();
 
 document.addEventListener("DOMContentLoaded",()=>{
     const observer= new IntersectionObserver(entries=>{
-        const entry = entries[0]; // this is the ScrollResponser div
+        const entry = entries[0]; // this is the scroll-responser div
 
         if(entry.isIntersecting && !isLoading){
             page++;
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         threshold:0 //The threshold in an Intersection Observer controls how much of the target element must be visible before the callback is triggered
     });
 
-    observer.observe(document.querySelector('.ScrollResponser'));
+    observer.observe(document.querySelector('.scroll-responser'));
 
     structurePage() //to upload the first page
 });
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 function openModal() {
 
-    const closeBtn = document.querySelector('.CloseButtonWrapper button');
+    const closeBtn = document.querySelector('.close-button-wrapper button');
     const imagesContainer = document.querySelector("#images");
 
 
@@ -119,17 +119,17 @@ function openModal() {
 
         const clickedImage = e.target;
 
-        if (clickedImage.tagName == "IMG" && clickedImage.closest('.ImageWrapper')) {
-            modal.classList.remove("DisplayNoneModal");
+        if (clickedImage.tagName == "IMG" && clickedImage.closest('.image-wrapper')) {
+            modal.classList.remove("display-none-modal");
 
-            modal.querySelector(".ImageModal .ImgOptions").innerHTML = `
+            modal.querySelector(".image-modal .img-options").innerHTML = `
                 <span>${clickedImage.getAttribute('title')}</span>
-                <button id="DownloadBtn">
+                <button id="download-btn">
                     <i class="fa-solid fa-download"></i>
                 </button>
             `;
 
-            document.getElementById("DownloadBtn").addEventListener("click", async function () {
+            document.getElementById("download-btn").addEventListener("click", async function () {
                 const imageURL = clickedImage.src;
 
                 try {
@@ -153,14 +153,14 @@ function openModal() {
                 }
             });
 
-            modal.querySelector(".ImageModal .ImageWrapper").innerHTML = `
+            modal.querySelector(".image-modal .image-wrapper").innerHTML = `
                 <img src="${clickedImage.src}" alt="${clickedImage.alt}" title="${clickedImage.title}"/>
             `;
         }
     });
 
     closeBtn.addEventListener("click", function (e) {
-        modal.classList.add('DisplayNoneModal');
+        modal.classList.add('display-none-modal');
     });
 
 }
@@ -171,13 +171,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 document.addEventListener("keydown", (e) => {
     if (e.code === 'Escape') {
-        modal.classList.add('DisplayNoneModal');
+        modal.classList.add('display-none-modal');
     }
 });
 
 window.onclick = function (event) {
     if (event.target == modal) {
-        modal.classList.add("DisplayNoneModal");
+        modal.classList.add("display-none-modal");
     }
 }
 
@@ -186,11 +186,11 @@ window.onclick = function (event) {
 function getToast(message, time){
     const toast=document.querySelector(".toast");
     toast.querySelector('p').textContent=message;
-    toast.classList.remove("DisplayNoneModal");
-    toast.classList.add("RightLeft");
+    toast.classList.remove("display-none-modal");
+    toast.classList.add("right-left");
 
     setTimeout(()=>{
-        toast.classList.remove("RightLeft");
-        toast.classList.add("DisplayNoneModal");
+        toast.classList.remove("right-left");
+        toast.classList.add("display-none-modal");
     },time);
 }

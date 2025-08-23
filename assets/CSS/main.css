@@ -11,7 +11,7 @@ header{
     justify-content: center;
 }
 
-.ExploreHeader{
+.explore-header{
     flex-direction: column;
 }
 
@@ -36,39 +36,38 @@ header ul li{
 
 .explore h1{
     opacity:0;
-    animation: toRight 1s forwards;
+    animation: to-right 1s forwards;
     transform: translateX(-50%);
     max-width: 400px;
     font-size: 40px;
 }
 
-@keyframes toRight {
+@keyframes to-right {
     to{
         opacity:1;
         transform: translateX(0);
     }
 }
 
-
-.ImageSection img{
+.image-section img{
     animation: appearing 1s forwards;
     opacity: 0;
     transform: translateY(20px) ;
 }
 
-.ImageSection img:nth-child(1){
+.image-section img:nth-child(1){
     animation-delay: 0s;
 }
 
-.ImageSection img:nth-child(2){
+.image-section img:nth-child(2){
     animation-delay: 0.3s;
 }
 
-.ImageSection img:nth-child(3){
+.image-section img:nth-child(3){
     animation-delay: 0.6s;
 }
 
-.ImageSection img:nth-child(4){
+.image-section img:nth-child(4){
     animation-delay: 0.9s;
 }
 
@@ -92,7 +91,7 @@ header ul li{
     .display-none-mobile{
         display: none;
     }
-    .ImageSection div:nth-child(2){
+    .image-section div:nth-child(2){
         display: flex;
         justify-content: center;
         align-items: center;
@@ -103,7 +102,7 @@ header ul li{
 
 /*..................Loader css..........................*/
 
-.LoaderContainer{
+.loader-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +121,7 @@ header ul li{
     bottom: 200px;
 }
 
-.StopLoader{
+.stop-loader{
     display: none;
 }
 
@@ -136,10 +135,6 @@ header ul li{
     }
 }
 /*............................Main content style..................................*/
-main{
-    margin-bottom: 100px;
-}
-
 #images{
     padding: 30px 0px;
 }
@@ -157,64 +152,64 @@ main{
     transform: scale(1.02);
 }
 
-.GridStyle{
+.grid-style{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
 }
 
-.ImageRow{
+.image-row{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
-.TwoImgDiv{
+.two-img-div{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
-.TwoImgDiv,.SingleImgDiv{
+.two-img-div,.single-img-div{
     overflow: hidden;
 }
 
-.GridStyle .TwoImgDiv img{
+.grid-style .two-img-div img{
     object-fit: cover;
 }
 
-.GridStyle .ImageWrapper{
+.grid-style .image-wrapper{
     padding: 10px; 
 }
 
-.SingleImgDiv{
+.single-img-div{
     height: 500px;
     max-height: 600px;
 }
 
-.TwoImgDiv .ImageWrapper{
+.two-img-div .image-wrapper{
     height: 450px;
 }
 
-.TwoImgDiv {
+.two-img-div {
     max-height: 500px;
 }
 
 
 @media screen and (max-width: 800px){
-    .ImageRow{
+    .image-row{
         max-height: 700px;
     }
 
-    .SingleImgDiv{
+    .single-img-div{
         max-height: 300px;
     }
 
-    .TwoImgDiv .ImageWrapper{
+    .two-img-div .image-wrapper{
         height: 250px;
     }
 
-    .TwoImgDiv {
+    .two-img-div {
         max-height: 300px;
     }
 
@@ -222,25 +217,24 @@ main{
 
 
 @media screen and (max-width: 600px){
-    .ImageRow{
-    
+    .image-row{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
     }
 
-    .ImageRow{
+    .image-row{
         max-height: 1500px;
     }
 
-    .SingleImgDiv{
+    .single-img-div{
         max-height: 300px;
     }
 
-    .TwoImgDiv .ImageWrapper{
+    .two-img-div .image-wrapper{
         height: 300px;
     }
 
-    .TwoImgDiv {
+    .two-img-div {
         max-height: 350px;
     }
 }
@@ -260,7 +254,7 @@ main{
 }
 
 
-.ImageModal{
+.image-modal{
     background-color: rgb(255, 255, 255);
     padding: 20px 40px;
     border-radius:20px;
@@ -271,13 +265,13 @@ main{
 
 }
  
-.ImageModal img{
+.image-modal img{
     width:100%;
     height: auto;
 }
 
 
-.ImgOptions{
+.img-options{
     padding: 5px 20px;
     position: absolute;
     left: 0px;
@@ -289,13 +283,13 @@ main{
     border-bottom-right-radius: 20px;
 }
 
-.CloseButtonWrapper{
+.close-button-wrapper{
     position: absolute;
     left: 40px;
     top: 25px;
 }
 
-.CloseButtonWrapper button{
+.close-button-wrapper button{
     color: #f4f6fa;
     font-weight: bold;
     font-size: 36px;
@@ -305,89 +299,89 @@ main{
     cursor: pointer;
 }
 
-#DownloadBtn{
+#download-btn{
     cursor: pointer;
     border-radius: 10px;
     font-size: 36px;
 }
 
-#DownloadBtn #DownloadImg,.ImgOptions span{
+#download-btn #downloading-img,.img-options span{
     padding: 5px;
     background-color: #ffffff;
 }
-#DownloadBtn #DownloadImg,.CloseButtonWrapper{
+
+#download-btn #downloading-img,.close-button-wrapper{
     border-radius: 10px;
 }
 
-.DisplayNoneModal{
+.display-none-modal{
     display: none;
 }
 
 @media screen and (max-width: 800px) {
-    .ImageModal{
+    .image-modal{
         width:100%;
     }
 }
 
 /*........................Home page Style.............................*/
 
-.ScrollContainer {
+.scroll-container {
   overflow-y: scroll;
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
-.ImgSection{
+.img-section{
     padding: 20px 40px;
     background-color: peachpuff;
     scroll-snap-align: start;
     min-height: 100vh;
 }
 
-
-.ImgSection:nth-child(2){
+.img-section:nth-child(2){
     background-color: rgb(224, 238, 255);
 }
 
-.ImgSection:nth-child(3){
+.img-section:nth-child(3){
     background-color: palegreen;
 }
 
-.ImgSection h1{
+.img-section h1{
    font-size: 40px;
 }
 
-.ImgSection img{
+.img-section img{
     animation: appearing 1s forwards;
     opacity: 0;
     transform: translateY(20px);
     border-radius: 15px;
 }
 
-.ImgSection img:nth-child(1){
+.img-section img:nth-child(1){
     animation-delay: 0s;
 }
 
-.ImgSection img:nth-child(2){
+.img-section img:nth-child(2){
     animation-delay: 0.5s;
 }
 
-.ImgSection img:nth-child(3){
+.img-section img:nth-child(3){
     animation-delay: 1s;
 }
 
 @media screen and (max-width: 800px){
-    .ImgSection:nth-child(1) img:nth-child(2){
+    .img-section:nth-child(1) img:nth-child(2){
         display: none;
     }
 
-    .ImgSection:nth-child(2) img,.ImgSection:nth-child(1) img,.ImgSection:nth-child(3) img{
+    .img-section:nth-child(2) img,.img-section:nth-child(1) img,.img-section:nth-child(3) img{
         width: 100%;
         height: auto;
     }
 
-    .ImgSection:nth-child(3) div,.ImgSection:nth-child(1) div, .ImgSection:nth-child(2) div{
+    .img-section:nth-child(3) div,.img-section:nth-child(1) div, .img-section:nth-child(2) div{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -395,8 +389,6 @@ main{
         gap:5px;
         width: 100%;
     }
-
-
 }
 
 
@@ -430,7 +422,6 @@ footer .row{
 padding: 5px 0px;
 width: 100%;
 }
-
 
 /*............................toast............................*/
 
