@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explore - PicSnap</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Explore Pictures">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Raheeq Mousa">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="PicSnap - Explore Pictures">
+        <meta property="og:description" content="PicSnap - Explore Images, Download Free Images">
+        <meta property="og:image" href="assets/Images/logo.png">
+        <link rel="icon" type="image/" href="assets/Images/logo.png">
+
+        <link href="assets/CSS/main.css" rel="stylesheet">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa+Ink:wght@400;700&family=Artifika&display=swap"
+            rel="stylesheet" />
+
+    </head>
+
+    <body>
+
+        <header class="explore-header">
+                <div class="row navbar container">
+                    <div>
+                        <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="50">
+                    </div>
+
+                    <nav aria-label="Primary navigation">
+                        <ul class="row">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="explore.html">Explore</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav aria-label="Authentication navigation">
+                        <ul class="row">
+                            <li><a href="#">login</a></li>
+                            <li><a href="#">register</a></li>
+                        </ul>
+                    </nav>
+            </div>
+            
+            <section class="explore row">
+                <h1>Step outside your comfort zone and explore the beauty our world!</h1>
+                <section class="image-section">
+                    <div class="display-none-mobile">
+                        <img src="assets/Images/camera.jpg" title="Camera" alt="Camera" width="200px" height="200px" loading="lazy">
+                        <img src="assets/Images/nature.jpg" title="Nature" alt="Nature" width="200px" height="200px" loading="lazy">                  
+                    </div>
+                    <div>
+                        <img src="assets/Images/dog.jpg" title="Dog" alt="Dog" width="200px" height="200px" loading="lazy">
+                        <img src="assets/Images/adventure.jpg" title="Adventure" alt="Adventure" width="200px" height="200px" loading="lazy">
+                    </div>
+                </section>
+            </section>
+        </header>
+
+        <main>
+            <section class="intro"> <!--I will put a 3d animation scene inside a model viewer here-->
+
+            </section>
+
+            <div class="loader-container">
+                <div class="loader">
+
+                </div>
+            </div>
+            <section id="images">
+               
+            </section>
+
+            <div class="scroll-responser" >
+
+            </div>
+
+            <div class="modal display-none-modal" role="dialog" aria-modal="true" aria-label="Image">
+
+                <div class="image-modal">
+                    <div class="close-button-wrapper">
+                        <button>X</button>
+                    </div>
+                    
+                    <div class="image-wrapper">
+                        
+                    </div>
+
+                    <div class="img-options row">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </main>
+
+        <footer>
+                <div class="row container">
+                    <img src="assets/Images/logo.png" alt="PicSnap logo" title="PicSnap logo" width="50" height="50">
+                    <nav aria-label="Primary navigation">
+                        <ul class="row links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="explore.html">Explore</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="row container">
+                    <p>Copyright © 2024 PicSnap. All rights reserved</p>
+                    <a href="#">Privacy Policy</a>
+                    <nav aria-label="Social links">
+                        <ul class="row links">
+                            <li>
+                            <a href="https://www.linkedin.com/in/raheeq-mousa" target="_blank"
+                                aria-label="Raheeq Mousa's LinkedIn Profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/raheeqm.mousa" target="_blank"
+                                aria-label="Raheeq Mousa's Facebook profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-square-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/heko._.spams/" target="_blank"
+                                aria-label="Raheeq Mousa's instagram profile" rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+                        </ul>
+                    </nav>
+                </div>
+        </footer>
+
+        <div class="toast display-none-modal">
+            <p></p>
+        </div>
+
+        <script src="assets/JS/main.js">
+        </script>
+    </body>
+</html>

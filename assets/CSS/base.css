@@ -1,0 +1,81 @@
+:root{
+    --mainFont:'Artifika','Times New Roman';
+}
+
+body{
+    font-family: var(--mainFont);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, ul, ol, blockquote,dl, dt, dd,figure, fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+main{
+    width: 100%;
+}
+
+button{
+    border: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    max-width:1000px;
+}
+
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-direction-column{
+    flex-direction: column;
+}
+
+.flex{
+    display:flex;
+}
+
+.align-end{
+    align-items: flex-end;
+}
+
+ @media screen and (max-width: 600px){
+    .container {
+        width: 90%;
+    }
+ }
+
+/*.......................Animation.........................*/
+
+.right-left{
+    animation: to-left 1s forwards;
+    transform: translateX(50%);
+}
+
+@keyframes to-left {
+    to{
+        opacity:1;
+        transform: translateX(0);
+    }
+}
